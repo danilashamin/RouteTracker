@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/orders_list"
-        android:enabled="true"
-        android:icon="@drawable/ic_list"
-        android:title="@string/orders_list"
-        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/map_fragment"
@@ -16,23 +10,17 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/archive"
+        android:id="@+id/routes_list"
         android:enabled="true"
-        android:icon="@drawable/ic_archive"
-        android:title="@string/archive"
+        android:icon="@drawable/ic_list"
+        android:title="@string/routes_list"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/sync"
+        android:id="@+id/time_range"
         android:enabled="true"
-        android:icon="@drawable/ic_sync_problem"
-        android:title="@string/sync"
+        android:icon="@drawable/ic_date_range"
+        android:title="@string/time_range"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/profile"
-        android:enabled="true"
-        android:icon="@drawable/ic_profile"
-        android:title="@string/profile"
-        app:showAsAction="ifRoom" />
 </menu>

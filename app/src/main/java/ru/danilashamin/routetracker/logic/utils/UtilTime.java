@@ -5,11 +5,12 @@ import android.content.res.Resources;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.elogroup.tracker.R;
-import com.elogroup.tracker.application.AppConfig;
 
 import org.threeten.bp.LocalDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
+
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.application.AppConfig;
 
 public final class UtilTime {
 

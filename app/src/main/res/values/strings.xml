@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Route Tracker</string>
+    <string name="undefined">Undefined</string>
+    <string name="route_tracking">Route tracking</string>
+    <string name="location_updates_service_content_template">Route start at %s</string>
+    <string name="map">Map</string>
+    <string name="routes_list">Routes list</string>
+    <string name="time_range">Time range</string>
 </resources>

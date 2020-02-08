@@ -14,6 +14,8 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import ru.danilashamin.routetracker.R;
 import ru.danilashamin.routetracker.base.moxy.MvpAppCompatActivity;
+import ru.danilashamin.routetracker.logic.usermessages.Message;
+import ru.danilashamin.routetracker.ui.blocks.BlockNavBar;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.support.SupportAppNavigator;

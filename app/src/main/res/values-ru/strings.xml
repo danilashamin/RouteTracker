@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Route Tracker</string>
+    <string name="undefined">Неопределено</string>
+    <string name="route_tracking">Запись маршрута</string>
+    <string name="location_updates_service_content_template">Маршрут начат в %s</string>
+    <string name="map">Карта</string>
+    <string name="routes_list">Список маршрутов</string>
+    <string name="time_range">Временной промежуток</string>
+</resources>

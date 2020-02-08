@@ -55,7 +55,7 @@ public final class MainActivity extends ActivityBase implements MainView, Bottom
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            selectTab(MainTab.ORDERS_LIST);
+            selectTab(MainTab.ROUTES_LIST);
         }
     }
 
@@ -73,24 +73,16 @@ public final class MainActivity extends ActivityBase implements MainView, Bottom
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.orders_list:
-                selectTab(MainTab.ORDERS_LIST);
+            case R.id.routes_list:
+                selectTab(MainTab.ROUTES_LIST);
                 return true;
 
             case R.id.map_fragment:
                 selectTab(MainTab.MAP);
                 return true;
 
-            case R.id.archive:
-                selectTab(MainTab.ARCHIVE);
-                return true;
-
-            case R.id.sync:
-                selectTab(MainTab.SYNC);
-                return true;
-
-            case R.id.profile:
-                selectTab(MainTab.PROFILE);
+            case R.id.time_range:
+                selectTab(MainTab.TIME_RANGE);
                 return true;
         }
         return false;

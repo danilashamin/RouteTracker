@@ -14,13 +14,14 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.elogroup.tracker.base.moxy.MvpAppCompatDialogFragment;
-import com.elogroup.tracker.logic.usermessages.Message;
+
 
 import org.jetbrains.annotations.NotNull;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import ru.danilashamin.routetracker.base.moxy.MvpAppCompatDialogFragment;
+import ru.danilashamin.routetracker.logic.usermessages.Message;
 
 public abstract class DialogFragmentBase extends MvpAppCompatDialogFragment implements ViewBase {
 

@@ -10,6 +10,12 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 
+import org.threeten.bp.LocalDateTime;
+
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.logic.utils.UtilTime;
+
+
 public final class NotificationsManager {
 
     private static final String LOCATION_UPDATES_CHANNEL_ID = "CHANNEL ID";
@@ -18,10 +24,12 @@ public final class NotificationsManager {
 
     private final NotificationManagerCompat notificationManager;
     private final Context context;
+    private UtilTime utilTime;
 
-    public NotificationsManager(NotificationManagerCompat notificationManager, Context context) {
+    public NotificationsManager(NotificationManagerCompat notificationManager, Context context, UtilTime utilTime) {
         this.notificationManager = notificationManager;
         this.context = context;
+        this.utilTime = utilTime;
     }
 
     public void setupLocationUpdatedChannel() {
@@ -36,11 +44,11 @@ public final class NotificationsManager {
         notificationManager.createNotificationChannel(adminChannel);
     }
 
-    public Notification buildLocationForegroundNotification(String serverOrderId) {
+    public Notification buildLocationForegroundNotification(LocalDateTime startTime) {
         return new NotificationCompat.Builder(context, LOCATION_UPDATES_CHANNEL_ID)
                 .setAutoCancel(false)
-                .setContentTitle(context.getString(OrderStatus.ON_ROAD.getStringRes()))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.order_location_updates_service_content_template, serverOrderId)))
+                .setContentTitle(context.getString(R.string.route_tracking))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.location_updates_service_content_template, utilTime.formatTime(startTime))))
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher))
                 .setSmallIcon(R.drawable.ic_location_updates_notification_icon)
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)

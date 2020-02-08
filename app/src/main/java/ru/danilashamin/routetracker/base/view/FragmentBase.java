@@ -11,13 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import com.elogroup.tracker.R;
-import com.elogroup.tracker.base.moxy.MvpAppCompatFragment;
-import com.elogroup.tracker.logic.usermessages.Message;
-import com.elogroup.tracker.ui.blocks.BlockNavBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.base.moxy.MvpAppCompatFragment;
+import ru.danilashamin.routetracker.logic.usermessages.Message;
+import ru.danilashamin.routetracker.ui.blocks.BlockNavBar;
 
 public abstract class FragmentBase extends MvpAppCompatFragment implements ViewBase {
 

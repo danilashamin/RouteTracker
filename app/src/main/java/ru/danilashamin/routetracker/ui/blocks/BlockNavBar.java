@@ -7,10 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import com.elogroup.tracker.R;
-import com.elogroup.tracker.ui.interfaces.IClickListener;
+
 
 import butterknife.BindView;
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.ui.interfaces.IClickListener;
 
 public class BlockNavBar extends Block {
 

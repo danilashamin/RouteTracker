@@ -8,16 +8,17 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.elogroup.tracker.R;
-import com.elogroup.tracker.application.App;
-import com.elogroup.tracker.logic.maintabs.MainTab;
-import com.elogroup.tracker.ui.navigation.BackButtonListener;
-import com.elogroup.tracker.ui.navigation.LocalCiceroneHolder;
-import com.elogroup.tracker.ui.navigation.RouterProvider;
-import com.elogroup.tracker.ui.navigation.Screens;
+
 
 import javax.inject.Inject;
 
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.application.App;
+import ru.danilashamin.routetracker.logic.maintabs.MainTab;
+import ru.danilashamin.routetracker.ui.navigation.BackButtonListener;
+import ru.danilashamin.routetracker.ui.navigation.LocalCiceroneHolder;
+import ru.danilashamin.routetracker.ui.navigation.RouterProvider;
+import ru.danilashamin.routetracker.ui.navigation.Screens;
 import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.Router;

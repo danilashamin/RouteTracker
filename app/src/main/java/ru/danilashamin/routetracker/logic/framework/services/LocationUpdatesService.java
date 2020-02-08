@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 
 import com.crashlytics.android.Crashlytics;
 
+
+import org.threeten.bp.LocalDateTime;
+
 import javax.inject.Inject;
 
 import io.reactivex.disposables.Disposable;
@@ -26,12 +29,12 @@ public final class LocationUpdatesService extends Service {
 
     private static final String TAG = LocationUpdatesService.class.getSimpleName();
 
-    private static final String KEY_ORDER_SERVER_ID = "KEY_ORDER_SERVER_ID";
+    private static final String KEY_ROUTE_TRACKING_START_TIME = "KEY_ROUTE_TRACKING_START_TIME";
     private static final int FOREGROUND_ID = 1;
 
-    public static void start(Context context, String orderServerId) {
+    public static void start(Context context, LocalDateTime routeTrackingStartTime) {
         Intent starter = new Intent(context, LocationUpdatesService.class);
-        starter.putExtra(KEY_ORDER_SERVER_ID, orderServerId);
+        starter.putExtra(KEY_ROUTE_TRACKING_START_TIME, routeTrackingStartTime);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(starter);
@@ -54,9 +57,7 @@ public final class LocationUpdatesService extends Service {
     @Inject
     NotificationsManager notificationsManager;
 
-
-
-    private String orderServerId;
+    private LocalDateTime routeTrackingStartTime;
 
     private Disposable locationUpdatesSubscription;
 
@@ -67,7 +68,7 @@ public final class LocationUpdatesService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        orderServerId = intent.getStringExtra(KEY_ORDER_SERVER_ID);
+        routeTrackingStartTime = (LocalDateTime) intent.getSerializableExtra(KEY_ROUTE_TRACKING_START_TIME);
         configureService();
         configureLocationUpdates();
         return START_REDELIVER_INTENT;
@@ -75,7 +76,7 @@ public final class LocationUpdatesService extends Service {
 
     private void configureService() {
         notificationsManager.setupLocationUpdatedChannel();
-        Notification notification = notificationsManager.buildLocationForegroundNotification(orderServerId);
+        Notification notification = notificationsManager.buildLocationForegroundNotification(routeTrackingStartTime);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             startForeground(FOREGROUND_ID, notification, FOREGROUND_SERVICE_TYPE_LOCATION);
         } else {

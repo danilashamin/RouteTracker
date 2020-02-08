@@ -23,7 +23,7 @@ public final class Screens {
 
     public static Screen getMainTab(@MainTab String tabName) {
         switch (tabName){
-            case MainTab.ORDERS_LIST:
+            case MainTab.ROUTES_LIST:
                 return new OrdersListScreen();
             case MainTab.MAP:
                 return new MapScreen();

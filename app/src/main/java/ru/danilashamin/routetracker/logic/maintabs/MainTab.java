@@ -7,13 +7,11 @@ import java.lang.annotation.RetentionPolicy;
 
 
 @Retention(RetentionPolicy.SOURCE)
-@StringDef({MainTab.ORDERS_LIST, MainTab.MAP, MainTab.ARCHIVE, MainTab.SYNC, MainTab.PROFILE})
+@StringDef({MainTab.ROUTES_LIST, MainTab.MAP, MainTab.TIME_RANGE})
 public @interface MainTab {
-    String ORDERS_LIST = "orders_list";
     String MAP = "map";
-    String ARCHIVE = "archive";
-    String SYNC = "sync";
-    String PROFILE = "profile";
+    String ROUTES_LIST = "routes_list";
+    String TIME_RANGE = "time_range";
 }
 
 

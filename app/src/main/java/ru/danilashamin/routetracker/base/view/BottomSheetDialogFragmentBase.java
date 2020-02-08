@@ -10,13 +10,13 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.elogroup.tracker.R;
-import com.elogroup.tracker.base.moxy.MvpBottomSheetDialogFragment;
-import com.elogroup.tracker.logic.usermessages.Message;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import ru.danilashamin.routetracker.R;
+import ru.danilashamin.routetracker.base.moxy.MvpBottomSheetDialogFragment;
+import ru.danilashamin.routetracker.logic.usermessages.Message;
 
 public abstract class BottomSheetDialogFragmentBase extends MvpBottomSheetDialogFragment implements ViewBase {
 
