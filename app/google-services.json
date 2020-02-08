@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "480417158639",
+    "firebase_url": "https://routetracker-5c219.firebaseio.com",
+    "project_id": "routetracker-5c219",
+    "storage_bucket": "routetracker-5c219.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480417158639:android:3e986f1a47d85ba460921a",
+        "android_client_info": {
+          "package_name": "ru.danilashamin.routetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480417158639-j5rcpre1dcf71e5k2uripn442dabqrok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.danilashamin.routetracker",
+            "certificate_hash": "c861e0630b260f3d74e0d0bd02b35de8a4b602fe"
+          }
+        },
+        {
+          "client_id": "480417158639-q8d0e6h7186iv9ot2sm60r7qk6o2mc04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiv1Gx_OoZYPSsQeTvBA5WW5mRkCW7PP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480417158639-q8d0e6h7186iv9ot2sm60r7qk6o2mc04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

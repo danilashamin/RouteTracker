@@ -1,17 +1,23 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext.kotlin_version = '1.3.61'
+    ext {
+        versions = [moxy: '1.5.5', multiDex: '2.0.1', kotlinVersion: '1.3.61', compileSdkVersion: 29, buildToolsVersion: '29.0.2', gradle: '3.5.3', appCompat: '1.1.0', coreKtx: '1.1.0', constraint: '1.1.3', dagger: '2.25.3', room: '2.2.3', butterKnife: '10.2.1', cicerone: '5.0.0', threeTenABP: '1.2.1', rxJava: '2.2.17', retrofit: '2.7.1', okHttp: '4.3.1', loggingInterceptor: '3.0.0', rxAndroid: '2.1.1', rxAdapter: '2.7.1', material: '1.1.0', stream: '1.2.1', threeTen: '1.2.2', googleServices: '4.3.2', fabric: '1.29.0', playServicesLocation: '17.0.0', playServicesMaps: '17.0.0', mapsUtils: '0.6.2', firebaseAnalytics: '17.2.0', fabricCrashlytics: '2.10.1', rxLocation: '1.0.5', rxPermission: '0.7.0', smartLocation: '3.3.3', versionName: '0.0.2']
+        libs = [moxy: "com.arello-mobile:moxy-app-compat:${versions.moxy}", multiDex: "androidx.multidex:multidex:${versions.multiDex}", kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlinVersion}", appCompat: "androidx.appcompat:appcompat:${versions.appCompat}", coreKtx: "androidx.core:core-ktx:${versions.coreKtx}", constraint: "androidx.constraintlayout:constraintlayout:${versions.constraint}", dagger: "com.google.dagger:dagger:${versions.dagger}", daggerAndroid: "com.google.dagger:dagger-android-support:${versions.dagger}", room: "androidx.room:room-runtime:${versions.room}", roomKtx: "androidx.room:room-ktx:${versions.room}", roomRx: "androidx.room:room-rxjava2:${versions.room}", butterKnife: "com.jakewharton:butterknife:${versions.butterKnife}", cicerone: "ru.terrakok.cicerone:cicerone:${versions.cicerone}", threeTenABP: "com.jakewharton.threetenabp:threetenabp:${versions.threeTenABP}", rxJava: "io.reactivex.rxjava2:rxjava:${versions.rxJava}", retrofit: "com.squareup.retrofit2:retrofit:${versions.retrofit}", retrofitRx: "com.squareup.retrofit2:adapter-rxjava2:${versions.rxAdapter}", retrofitGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}", okHttp: "com.squareup.okhttp3:okhttp:${versions.okHttp}", loggingInterceptor: "com.github.ihsanbal:LoggingInterceptor:${versions.loggingInterceptor}", rxAndroid: "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}", material: "com.google.android.material:material:${versions.material}", stream: "com.annimon:stream:${versions.stream}", threeTen: "com.jakewharton.threetenabp:threetenabp:${versions.threeTen}", playServicesLocation: "com.google.android.gms:play-services-location:${versions.playServicesLocation}", playServicesMaps: "com.google.android.gms:play-services-maps:${versions.playServicesMaps}", mapsUtils: "com.google.maps.android:android-maps-utils:${versions.mapsUtils}", firebaseAnalytics: "com.google.firebase:firebase-analytics:${versions.firebaseAnalytics}", fabricCrashlytics: "com.crashlytics.sdk.android:crashlytics:${versions.fabricCrashlytics}", rxPermission: "com.vanniktech:rxpermission:${versions.rxPermission}", rxLocation: "com.patloew.rxlocation:rxlocation:${versions.rxLocation}", smartLocation: "io.nlopez.smartlocation:library:${versions.smartLocation}", smartLocationRx: "io.nlopez.smartlocation:rx:${versions.smartLocation}"]
+        annotationProcessors = [moxy: "com.arello-mobile:moxy-compiler:${versions.moxy}", dagger: "com.google.dagger:dagger-compiler:${versions.dagger}", daggerAndroid: "com.google.dagger:dagger-android-processor:${versions.dagger}", room: "androidx.room:room-compiler:${versions.room}", butterKnife: "com.jakewharton:butterknife-compiler:${versions.butterKnife}"]
+        plugs = [gradle: "com.android.tools.build:gradle:${versions.gradle}", kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}", googleServices: "com.google.gms:google-services:${versions.googleServices}", fabric: "io.fabric.tools:gradle:${versions.fabric}"]
+    }
     repositories {
         google()
         jcenter()
-        
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://jitpack.io' }
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath plugs.gradle
+        classpath plugs.kotlin
+        classpath plugs.googleServices
+        classpath plugs.fabric
     }
 }
 
@@ -19,7 +25,10 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.google.com/' }
+        mavenCentral()
     }
 }
 
