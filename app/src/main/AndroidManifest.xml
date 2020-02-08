@@ -22,13 +22,14 @@
 
     <application
         android:allowBackup="true"
+        android:name=".application.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,5 +37,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="59ea715319994c16f403e8b9f631602f1d54bd5e" />
 
 </manifest>

@@ -1,11 +1,104 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorWhite</item>
     </style>
 
+    <style name="ButtonBase" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="BaseBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BaseBottomSheetStyle</item>
+    </style>
+
+    <style name="BaseBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="TextPrimary" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="TextSecondary" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="TextSecondary.Bold" parent="TextSecondary">
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextSecondary.Bold.16" parent="TextSecondary.Bold">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextSecondary.Bold.20" parent="TextSecondary.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextSecondary.Bold.24" parent="TextSecondary.Bold">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextSecondary.Bold.14" parent="TextSecondary.Bold">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextSecondary.Regular" parent="TextSecondary">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextSecondary.Regular.16" parent="TextSecondary.Regular">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextSecondary.Regular.20" parent="TextSecondary.Regular">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextSecondary.Regular.14" parent="TextSecondary.Regular">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="SeparatorLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/background_secondary_rounded</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="EditTextSecondary" parent="Widget.AppCompat.EditText">
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:background">@drawable/background_secondary_rounded</item>
+        <item name="android:padding">@dimen/d_common_8dp</item>
+    </style>
+
+    <style name="AppVersion" parent="TextSecondary.Regular.14">
+        <item name="android:background">@drawable/background_secondary_rounded</item>
+        <item name="android:padding">4dp</item>
+    </style>
 </resources>
