@@ -6,11 +6,9 @@ import com.crashlytics.android.Crashlytics;
 
 import javax.inject.Inject;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import ru.danilashamin.routetracker.application.App;
 import ru.danilashamin.routetracker.base.presenter.PresenterBase;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 import ru.danilashamin.routetracker.logic.framework.PermissionsManager;
 import ru.danilashamin.routetracker.logic.location.LocationManager;
 import ru.danilashamin.routetracker.logic.mappers.EntitiesMapper;
@@ -76,7 +74,7 @@ public final class MapPresenter extends PresenterBase<MapView> {
         router.exit();
     }
 
-    public void onMapClicked(EntityLocation location) {
+    public void onMapClicked(LocationPoint location) {
 
     }
 

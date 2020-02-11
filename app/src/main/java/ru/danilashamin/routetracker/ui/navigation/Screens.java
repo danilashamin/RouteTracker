@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import java.util.Locale;
 
 import ru.danilashamin.routetracker.base.view.MainTabContainerFragment;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 import ru.danilashamin.routetracker.logic.maintabs.MainTab;
 import ru.danilashamin.routetracker.ui.activities.MainActivity;
 import ru.danilashamin.routetracker.ui.fragments.MapFragment;
@@ -84,7 +84,7 @@ public final class Screens {
 
         private Uri intentUri;
 
-        public LocationProcessorScreen(EntityLocation location) {
+        public LocationProcessorScreen(LocationPoint location) {
             intentUri = Uri.parse(String.format(Locale.ENGLISH,"geo:0,0?q=%f, %f", location.getLatitude(), location.getLongitude()));
         }
 

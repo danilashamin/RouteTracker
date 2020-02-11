@@ -14,18 +14,19 @@ import ru.danilashamin.routetracker.application.App;
 import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
 import ru.danilashamin.routetracker.storage.entities.Trackpoint;
 
-public final class EntityLocation {
+public final class LocationPoint {
 
     private final double latitude;
     private final double longitude;
+    private final double altitude;
+
     private final float bearing;
     private final float accuracy;
-    private final double altitude;
     private final float speed;
 
     private final LocalDateTime createdAt;
 
-    public EntityLocation(Builder builder) {
+    public LocationPoint(Builder builder) {
         latitude = builder.latitude;
         longitude = builder.longitude;
         createdAt = builder.createdAt;
@@ -43,6 +44,22 @@ public final class EntityLocation {
         return longitude;
     }
 
+    public double getAltitude() {
+        return altitude;
+    }
+
+    public float getBearing() {
+        return bearing;
+    }
+
+    public float getAccuracy() {
+        return accuracy;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
     public LatLng toLatLng(){
         return new LatLng(latitude, longitude);
     }
@@ -51,7 +68,7 @@ public final class EntityLocation {
         return createdAt;
     }
 
-    public static EntityLocation from(Location location) {
+    public static LocationPoint from(Location location) {
         return new Builder()
                 .setLatitude(location.getLatitude())
                 .setLongitude(location.getLongitude())
@@ -59,7 +76,7 @@ public final class EntityLocation {
                 .build();
     }
 
-    public static EntityLocation from(LatLng latLng){
+    public static LocationPoint from(LatLng latLng){
         return new Builder()
                 .setLatitude(latLng.latitude)
                 .setLongitude(latLng.longitude)
@@ -67,7 +84,7 @@ public final class EntityLocation {
                 .build();
     }
 
-    public static EntityLocation from(Trackpoint trackpoint){
+    public static LocationPoint from(Trackpoint trackpoint){
         return new Builder()
                 .setCreatedAt(trackpoint.getCreatedAt())
                 .setLongitude(trackpoint.getLongitude())
@@ -78,8 +95,8 @@ public final class EntityLocation {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof EntityLocation)) return false;
-        EntityLocation that = (EntityLocation) o;
+        if (!(o instanceof LocationPoint)) return false;
+        LocationPoint that = (LocationPoint) o;
         return Double.compare(that.latitude, latitude) == 0 &&
                 Double.compare(that.longitude, longitude) == 0 &&
                 Float.compare(that.bearing, bearing) == 0 &&
@@ -101,9 +118,10 @@ public final class EntityLocation {
 
         private double latitude;
         private double longitude;
+        private double altitude;
+
         private float bearing;
         private float accuracy;
-        private double altitude;
         private float speed;
 
         private LocalDateTime createdAt;
@@ -152,8 +170,8 @@ public final class EntityLocation {
             return this;
         }
 
-        public EntityLocation build() {
-            return new EntityLocation(this);
+        public LocationPoint build() {
+            return new LocationPoint(this);
         }
     }
 }

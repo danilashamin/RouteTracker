@@ -10,7 +10,7 @@ import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.location.providers.MultiFallbackProvider;
 import io.nlopez.smartlocation.rx.ObservableFactory;
 import io.reactivex.Observable;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 
 import static ru.danilashamin.routetracker.application.AppConfig.Location.LOCATION_DISTANCE;
 import static ru.danilashamin.routetracker.application.AppConfig.Location.LOCATION_REQUEST_INTERVAL;
@@ -22,22 +22,22 @@ public final class LocationManager {
         this.context = context;
     }
 
-    public Observable<EntityLocation> getCurrentLocation() {
+    public Observable<LocationPoint> getCurrentLocation() {
         return ObservableFactory
                 .from(SmartLocation.with(context)
                         .location(buildLocationProvider())
                         .config(buildLocationParams())
                         .oneFix())
-                .map(EntityLocation::from);
+                .map(LocationPoint::from);
     }
 
-    public Observable<EntityLocation> startLocationUpdates() {
+    public Observable<LocationPoint> startLocationUpdates() {
         return ObservableFactory
                 .from(SmartLocation.with(context)
                         .location(buildLocationProvider())
                         .config(buildLocationParams())
                         .continuous())
-                .map(EntityLocation::from);
+                .map(LocationPoint::from);
     }
 
     private LocationParams buildLocationParams(){

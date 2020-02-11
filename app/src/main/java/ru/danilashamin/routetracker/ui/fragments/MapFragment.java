@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import ru.danilashamin.routetracker.R;
 import ru.danilashamin.routetracker.application.App;
 import ru.danilashamin.routetracker.base.view.FragmentBase;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 import ru.danilashamin.routetracker.logic.mvp.presenters.MapPresenter;
 import ru.danilashamin.routetracker.logic.mvp.views.MapView;
 import ru.danilashamin.routetracker.ui.navigation.BackButtonListener;
@@ -74,7 +74,7 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
     }
 
     @Override
-    public void showCurrentLocation(EntityLocation location) {
+    public void showCurrentLocation(LocationPoint location) {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location.toLatLng(), DEFAULT_ZOOM));
     }
 
@@ -92,7 +92,7 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
     }
 
     private void onMapClicked(LatLng position) {
-        presenter.onMapClicked(EntityLocation.from(position));
+        presenter.onMapClicked(LocationPoint.from(position));
     }
 
     private boolean onMarkerClick(Marker marker) {

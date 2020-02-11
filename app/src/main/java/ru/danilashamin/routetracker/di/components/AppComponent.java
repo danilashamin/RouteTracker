@@ -12,11 +12,10 @@ import ru.danilashamin.routetracker.di.modules.LocationModule;
 import ru.danilashamin.routetracker.di.modules.NavigationModule;
 import ru.danilashamin.routetracker.di.modules.PermissionsModule;
 import ru.danilashamin.routetracker.di.modules.UtilsModule;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 import ru.danilashamin.routetracker.logic.framework.services.LocationUpdatesService;
 import ru.danilashamin.routetracker.logic.mvp.presenters.MainPresenter;
 import ru.danilashamin.routetracker.logic.mvp.presenters.MapPresenter;
-import ru.danilashamin.routetracker.storage.entities.Trackpoint;
 import ru.danilashamin.routetracker.ui.activities.MainActivity;
 import ru.danilashamin.routetracker.ui.fragments.MapFragment;
 import ru.danilashamin.routetracker.ui.utils.MarginDividerDecoration;
@@ -51,7 +50,7 @@ public interface AppComponent {
     //View
 
     //entities builders
-    void inject(EntityLocation.Builder builder);
+    void inject(LocationPoint.Builder builder);
 
     //Services
     void inject(LocationUpdatesService service);

@@ -5,7 +5,7 @@ import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import ru.danilashamin.routetracker.base.view.ViewBase;
-import ru.danilashamin.routetracker.logic.entities.EntityLocation;
+import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 
 public interface MapView extends ViewBase {
 
@@ -15,7 +15,7 @@ public interface MapView extends ViewBase {
     //******************* MAP REGION **********************
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showCurrentLocation(EntityLocation location);
+    void showCurrentLocation(LocationPoint location);
 
     //******************* END MAP REGION **********************
 
