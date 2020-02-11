@@ -2,7 +2,6 @@ package ru.danilashamin.routetracker.di.modules;
 
 import android.content.Context;
 
-import com.elogroup.tracker.logic.framework.PermissionsManager;
 import com.vanniktech.rxpermission.RealRxPermission;
 import com.vanniktech.rxpermission.RxPermission;
 
@@ -10,6 +9,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.danilashamin.routetracker.logic.framework.PermissionsManager;
 
 @Module
 public final class PermissionsModule {

@@ -29,6 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,14 +37,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".logic.framework.services.LocationUpdatesService"
             android:foregroundServiceType="location" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="59ea715319994c16f403e8b9f631602f1d54bd5e" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_sdk_api_key" />
+
     </application>
-
-    <meta-data
-        android:name="io.fabric.ApiKey"
-        android:value="59ea715319994c16f403e8b9f631602f1d54bd5e" />
-
 
 </manifest>

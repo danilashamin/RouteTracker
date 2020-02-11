@@ -12,6 +12,7 @@ import dagger.Provides;
 import ru.danilashamin.routetracker.logic.framework.NotificationsManager;
 import ru.danilashamin.routetracker.logic.sharedprefs.Preferences;
 import ru.danilashamin.routetracker.logic.utils.ResourcesUtils;
+import ru.danilashamin.routetracker.logic.utils.UtilTime;
 import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
 
 @Module
@@ -55,8 +56,8 @@ public final class AppModule {
 
     @Singleton
     @Provides
-    NotificationsManager provideNotificationsManager(NotificationManagerCompat notificationManager, Context context){
-        return new NotificationsManager(notificationManager, context);
+    NotificationsManager provideNotificationsManager(NotificationManagerCompat notificationManager, Context context, UtilTime utilTime){
+        return new NotificationsManager(notificationManager, context, utilTime);
     }
 
 }

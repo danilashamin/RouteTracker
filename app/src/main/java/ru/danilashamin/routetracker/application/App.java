@@ -11,6 +11,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import io.fabric.sdk.android.Fabric;
 import ru.danilashamin.routetracker.di.components.AppComponent;
+import ru.danilashamin.routetracker.di.components.DaggerAppComponent;
 import ru.danilashamin.routetracker.di.modules.AppModule;
 import ru.danilashamin.routetracker.di.modules.DatabaseModule;
 import ru.danilashamin.routetracker.di.modules.LocationModule;

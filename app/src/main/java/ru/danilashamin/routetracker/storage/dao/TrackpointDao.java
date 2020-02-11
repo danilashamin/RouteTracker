@@ -4,14 +4,15 @@ import androidx.room.Dao;
 import androidx.room.Query;
 import androidx.room.TypeConverters;
 
-import com.elogroup.tracker.storage.config.AppDbConfig;
-import com.elogroup.tracker.storage.converters.DateTimeTypeConverter;
-import com.elogroup.tracker.storage.entities.Trackpoint;
+
 
 import java.util.List;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import ru.danilashamin.routetracker.storage.config.AppDbConfig;
+import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
+import ru.danilashamin.routetracker.storage.entities.Trackpoint;
 
 @Dao
 public interface TrackpointDao extends BaseDao<Trackpoint> {
@@ -24,6 +25,6 @@ public interface TrackpointDao extends BaseDao<Trackpoint> {
     Observable<List<Trackpoint>> getTrackpoints(int limit);
 
     @TypeConverters(DateTimeTypeConverter.class)
-    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " WHERE order_server_id = :orderServerId ORDER BY createdAt ASC")
-    Observable<List<Trackpoint>> getTrackpointsByOrderServerId(String orderServerId);
+    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " ORDER BY createdAt ASC")
+    Observable<List<Trackpoint>> getTrackpointsByOrderServerId();
 }

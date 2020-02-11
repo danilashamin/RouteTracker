@@ -6,4 +6,5 @@
     <string name="map">Map</string>
     <string name="routes_list">Routes list</string>
     <string name="time_range">Time range</string>
+    <string name="google_maps_sdk_api_key" translatable="false">AIzaSyAyPyt5fz_PBkdfh0EXBwctqxkek3IUL8w</string>
 </resources>

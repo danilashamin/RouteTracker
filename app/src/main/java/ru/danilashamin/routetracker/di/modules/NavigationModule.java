@@ -1,11 +1,11 @@
 package ru.danilashamin.routetracker.di.modules;
 
-import com.elogroup.tracker.ui.navigation.LocalCiceroneHolder;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.danilashamin.routetracker.ui.navigation.LocalCiceroneHolder;
 import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;

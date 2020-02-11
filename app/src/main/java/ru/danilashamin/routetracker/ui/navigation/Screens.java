@@ -12,6 +12,9 @@ import ru.danilashamin.routetracker.base.view.MainTabContainerFragment;
 import ru.danilashamin.routetracker.logic.entities.EntityLocation;
 import ru.danilashamin.routetracker.logic.maintabs.MainTab;
 import ru.danilashamin.routetracker.ui.activities.MainActivity;
+import ru.danilashamin.routetracker.ui.fragments.MapFragment;
+import ru.danilashamin.routetracker.ui.fragments.RoutesListFragment;
+import ru.danilashamin.routetracker.ui.fragments.TimeRangeFragment;
 import ru.terrakok.cicerone.Screen;
 import ru.terrakok.cicerone.android.support.SupportAppScreen;
 
@@ -24,15 +27,11 @@ public final class Screens {
     public static Screen getMainTab(@MainTab String tabName) {
         switch (tabName){
             case MainTab.ROUTES_LIST:
-                return new OrdersListScreen();
+                return new RoutesListScreen();
             case MainTab.MAP:
                 return new MapScreen();
-            case MainTab.ARCHIVE:
-                return new ArchiveScreen();
-            case MainTab.SYNC:
-                return new SyncScreen();
-            case MainTab.PROFILE:
-                return new ProfileScreen();
+            case MainTab.TIME_RANGE:
+                return new TimeRangeScreen();
                 default:
                     throw new IllegalArgumentException("Illegal main tab: " + tabName);
         }
@@ -56,6 +55,27 @@ public final class Screens {
         @Override
         public Fragment getFragment() {
             return MainTabContainerFragment.newInstance(tabName);
+        }
+    }
+
+    public static final class MapScreen extends SupportAppScreen {
+        @Override
+        public Fragment getFragment() {
+            return MapFragment.newInstance();
+        }
+    }
+
+    public static final class RoutesListScreen extends SupportAppScreen {
+        @Override
+        public Fragment getFragment() {
+            return RoutesListFragment.newInstance();
+        }
+    }
+
+    public static final class TimeRangeScreen extends SupportAppScreen {
+        @Override
+        public Fragment getFragment() {
+            return TimeRangeFragment.newInstance();
         }
     }
 

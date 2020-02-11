@@ -2,7 +2,7 @@ package ru.danilashamin.routetracker.logic.utils;
 
 import android.widget.TextView;
 
-import com.elogroup.tracker.R;
+import ru.danilashamin.routetracker.R;
 
 public final class UtilText {
 

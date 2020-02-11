@@ -55,7 +55,7 @@ public final class MainActivity extends ActivityBase implements MainView, Bottom
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            selectTab(MainTab.ROUTES_LIST);
+            selectTab(MainTab.MAP);
         }
     }
 

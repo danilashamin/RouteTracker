@@ -7,10 +7,11 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.elogroup.tracker.application.App;
-import com.elogroup.tracker.logic.utils.ResourcesUtils;
 
 import javax.inject.Inject;
+
+import ru.danilashamin.routetracker.application.App;
+import ru.danilashamin.routetracker.logic.utils.ResourcesUtils;
 
 public final class MarginDividerDecoration extends RecyclerView.ItemDecoration {
 
