@@ -21,10 +21,10 @@ public interface TrackpointDao extends BaseDao<Trackpoint> {
     Flowable<Integer> getTrackpointsCount();
 
     @TypeConverters(DateTimeTypeConverter.class)
-    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " ORDER BY createdAt ASC LIMIT :limit")
+    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " ORDER BY created_at ASC LIMIT :limit")
     Observable<List<Trackpoint>> getTrackpoints(int limit);
 
     @TypeConverters(DateTimeTypeConverter.class)
-    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " ORDER BY createdAt ASC")
+    @Query("SELECT * FROM " + AppDbConfig.TRACKPOINT.TABLE_NAME + " ORDER BY created_at ASC")
     Observable<List<Trackpoint>> getTrackpointsByOrderServerId();
 }

@@ -3,6 +3,7 @@ package ru.danilashamin.routetracker.storage.entities;
 import androidx.core.util.ObjectsCompat;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import org.threeten.bp.LocalDateTime;
@@ -14,6 +15,7 @@ import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
 @Entity(tableName = AppDbConfig.ROUTE.TABLE_NAME)
 public final class Route {
 
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = AppDbConfig.ROUTE.ID)
     private final long id;
 
