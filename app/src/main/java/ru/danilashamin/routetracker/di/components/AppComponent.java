@@ -17,6 +17,7 @@ import ru.danilashamin.routetracker.logic.framework.services.LocationUpdatesServ
 import ru.danilashamin.routetracker.logic.mvp.presenters.MainPresenter;
 import ru.danilashamin.routetracker.logic.mvp.presenters.MapPresenter;
 import ru.danilashamin.routetracker.ui.activities.MainActivity;
+import ru.danilashamin.routetracker.ui.bottomsheets.RouteControlBottomSheet;
 import ru.danilashamin.routetracker.ui.fragments.MapFragment;
 import ru.danilashamin.routetracker.ui.utils.MarginDividerDecoration;
 
@@ -48,10 +49,12 @@ public interface AppComponent {
 
 
     //View
+    void inject(RouteControlBottomSheet routeControlBottomSheet);
 
     //entities builders
     void inject(LocationPoint.Builder builder);
 
     //Services
     void inject(LocationUpdatesService service);
+
 }

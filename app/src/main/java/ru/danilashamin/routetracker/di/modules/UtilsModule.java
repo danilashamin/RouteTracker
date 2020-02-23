@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import ru.danilashamin.routetracker.logic.utils.ResourcesUtils;
+import ru.danilashamin.routetracker.logic.utils.UtilRoutes;
 import ru.danilashamin.routetracker.logic.utils.UtilText;
 import ru.danilashamin.routetracker.logic.utils.UtilTime;
 import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
@@ -45,5 +46,11 @@ public final class UtilsModule {
     @Provides
     ViewMapUtils provideViewMapUtils(ImageUtils imageUtils, ResourcesUtils resourcesUtils){
         return new ViewMapUtils(imageUtils, resourcesUtils);
+    }
+
+    @Singleton
+    @Provides
+    UtilRoutes provideRoutesUtil(Context context){
+        return new UtilRoutes(context);
     }
 }

@@ -7,4 +7,10 @@
     <string name="map">Карта</string>
     <string name="routes_list">Список маршрутов</string>
     <string name="time_range">Временной промежуток</string>
+    <string name="route_control">Управление маршрутом</string>
+    <string name="start_route">Начать запись маршрута</string>
+    <string name="route_start_at">"Маршрут начат: "</string>
+    <string name="stop_route">Закончить запись маршрута</string>
+    <string name="pause_route">Приостановить запись маршрута</string>
+    <string name="resume_route">Продолжить запись маршрута</string>
 </resources>

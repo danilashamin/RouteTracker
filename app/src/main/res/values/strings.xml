@@ -7,4 +7,10 @@
     <string name="routes_list">Routes list</string>
     <string name="time_range">Time range</string>
     <string name="google_maps_sdk_api_key" translatable="false">AIzaSyAyPyt5fz_PBkdfh0EXBwctqxkek3IUL8w</string>
+    <string name="route_control">Route control</string>
+    <string name="start_route">Start route</string>
+    <string name="route_start_at">Route start at:</string>
+    <string name="stop_route">Stop route</string>
+    <string name="pause_route">Pause route tracking</string>
+    <string name="resume_route">Resume route tracking</string>
 </resources>

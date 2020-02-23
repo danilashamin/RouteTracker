@@ -6,20 +6,22 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 interface BaseDao<T> {
 
     @Insert
-    Long add(T t);
+    Single<Long> add(T t);
 
     @Insert
-    List<Long> add(List<T> items);
+    Single<List<Long>> add(List<T> items);
 
     @Update
-    int update(T t);
+    Single<Integer> update(T t);
 
     @Delete
-    void delete(T t);
+    Single<Integer> delete(T t);
 
     @Delete
-    void delete(List<T> items);
+    Single<Integer> delete(List<T> items);
 }

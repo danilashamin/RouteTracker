@@ -62,6 +62,20 @@ public final class Route {
         return status;
     }
 
+    public Builder toBuilder(){
+        return new Builder()
+                .setStatus(status)
+                .setStartedAt(startedAt)
+                .setFinishedAt(finishedAt)
+                .setId(id);
+    }
+    public static Route createAndStart(){
+        return new Builder()
+                .setStartedAt(LocalDateTime.now())
+                .setStatus(RouteStatus.ON_ROAD)
+                .build();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

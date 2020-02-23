@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/route_control_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_secondary_top_rounded"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="55dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        style="@style/TextSecondary.Bold.20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/route_control" />
+
+    <LinearLayout
+        android:id="@+id/route_start_time_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextSecondary.Regular.16"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableStart="@drawable/ic_access_time"
+            android:drawableLeft="@drawable/ic_access_time"
+            android:drawablePadding="@dimen/d_common_8dp"
+            android:gravity="center_vertical"
+            android:text="@string/route_start_at" />
+
+        <TextView
+            android:id="@+id/tv_route_start_time"
+            style="@style/TextSecondary.Regular.16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/d_common_8dp"
+            android:layout_marginLeft="@dimen/d_common_8dp"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_stop_route"
+        style="@style/ButtonSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/stop_route" />
+
+    <Button
+        android:id="@+id/btn_resume_route"
+        style="@style/ButtonSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/resume_route" />
+
+    <Button
+        android:id="@+id/btn_pause_route"
+        style="@style/ButtonSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/pause_route" />
+
+    <Button
+        android:id="@+id/btn_start_route"
+        style="@style/ButtonSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/start_route" />
+</LinearLayout>

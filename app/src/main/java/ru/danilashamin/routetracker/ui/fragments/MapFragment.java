@@ -12,15 +12,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.Polyline;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import ru.danilashamin.routetracker.R;
 import ru.danilashamin.routetracker.application.App;
 import ru.danilashamin.routetracker.base.view.FragmentBase;
+import ru.danilashamin.routetracker.logic.entities.EntityRouteControl;
 import ru.danilashamin.routetracker.logic.entities.LocationPoint;
 import ru.danilashamin.routetracker.logic.mvp.presenters.MapPresenter;
 import ru.danilashamin.routetracker.logic.mvp.views.MapView;
+import ru.danilashamin.routetracker.ui.bottomsheets.RouteControlBottomSheet;
 import ru.danilashamin.routetracker.ui.navigation.BackButtonListener;
 import ru.danilashamin.routetracker.ui.navigation.RouterProvider;
 import ru.danilashamin.routetracker.ui.utils.ViewMapUtils;
@@ -46,6 +52,10 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
 
     private GoogleMap googleMap;
 
+    private RouteControlBottomSheet routeControlBottomSheet;
+
+    private List<Polyline> routePolylines;
+
     @ProvidePresenter
     MapPresenter providePresenter() {
         return new MapPresenter(((RouterProvider) requireParentFragment()).getRouter());
@@ -54,7 +64,11 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
     @Override
     protected void init() {
         initNavbar(R.string.map);
+        routePolylines = new ArrayList<>();
         App.getInstance().getAppComponent().inject(this);
+        routeControlBottomSheet = new RouteControlBottomSheet(requireView());
+        routeControlBottomSheet.setActionListener(routeControlActionListener)
+                .collapse();
     }
 
     @Override
@@ -62,6 +76,7 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
         return R.layout.fragment_map;
     }
 
+    // **************************** VIEW REGION **************************** //
     @Override
     public void loadMap() {
         Fragment fragment = getChildFragmentManager().findFragmentById(R.id.map_fragment);
@@ -77,6 +92,18 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
     public void showCurrentLocation(LocationPoint location) {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location.toLatLng(), DEFAULT_ZOOM));
     }
+
+    @Override
+    public void submitRouteControlInfo(EntityRouteControl routeControl) {
+        routeControlBottomSheet.submitControlInfo(routeControl);
+    }
+
+    @Override
+    public void collapseRouteControl() {
+        routeControlBottomSheet.collapse();
+    }
+
+    // **************************** VIEW REGION END **************************** //
 
     private void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
@@ -96,7 +123,6 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
     }
 
     private boolean onMarkerClick(Marker marker) {
-
         return false;
     }
 
@@ -106,4 +132,33 @@ public final class MapFragment extends FragmentBase implements MapView, BackButt
         return true;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        routeControlBottomSheet.unbind();
+    }
+
+    private RouteControlBottomSheet.ActionListener routeControlActionListener = new RouteControlBottomSheet.ActionListener() {
+        @Override
+        public void onStartRouteClicked() {
+            presenter.onStartRouteClicked();
+        }
+
+        @Override
+        public void onStopRouteClicked(long routeId) {
+            presenter.onStopRouteClicked(routeId);
+
+        }
+
+        @Override
+        public void onPauseRouteClicked(long routeId) {
+            presenter.onPauseRouteClicked(routeId);
+
+        }
+
+        @Override
+        public void onResumeRouteClicked(long routeId) {
+            presenter.onResumeRouteClicked(routeId);
+        }
+    };
 }

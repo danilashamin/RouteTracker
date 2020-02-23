@@ -26,6 +26,7 @@ public final class AppDbConfig {
         public static final String ACCURACY = "accuracy";
         public static final String SPEED = "speed";
         public static final String ROUTE_ID = "route_id";
+        public static final String ROUTE_STATUS = "route_status";
     }
 
 

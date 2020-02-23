@@ -10,6 +10,7 @@ import androidx.room.TypeConverters;
 import org.threeten.bp.LocalDateTime;
 
 import ru.danilashamin.routetracker.logic.entities.LocationPoint;
+import ru.danilashamin.routetracker.logic.enums.RouteStatus;
 import ru.danilashamin.routetracker.storage.config.AppDbConfig;
 import ru.danilashamin.routetracker.storage.converters.DateTimeTypeConverter;
 
@@ -47,11 +48,15 @@ public final class Trackpoint {
     @ColumnInfo(name = AppDbConfig.TRACKPOINT.ROUTE_ID)
     private final long routeId;
 
+    @RouteStatus
+    @ColumnInfo(name = AppDbConfig.TRACKPOINT.ROUTE_STATUS)
+    private final String routeStatus;
+
     @TypeConverters(value = DateTimeTypeConverter.class)
     @ColumnInfo(name = AppDbConfig.TRACKPOINT.CREATED_AT)
     private final LocalDateTime createdAt;
 
-    public Trackpoint(long id, double latitude, double longitude, double altitude, float bearing, float accuracy, float speed, long routeId, LocalDateTime createdAt) {
+    public Trackpoint(long id, double latitude, double longitude, double altitude, float bearing, float accuracy, float speed, long routeId, @RouteStatus String routeStatus, LocalDateTime createdAt) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -60,6 +65,7 @@ public final class Trackpoint {
         this.accuracy = accuracy;
         this.speed = speed;
         this.routeId = routeId;
+        this.routeStatus = routeStatus;
         this.createdAt = createdAt;
 
     }
@@ -74,6 +80,7 @@ public final class Trackpoint {
         accuracy = builder.accuracy;
         speed = builder.speed;
         routeId = builder.routeId;
+        routeStatus = builder.routeStatus;
     }
 
     public long getId() {
@@ -112,7 +119,11 @@ public final class Trackpoint {
         return routeId;
     }
 
-    public static Trackpoint from(LocationPoint locationPoint, long routeId) {
+    public String getRouteStatus() {
+        return routeStatus;
+    }
+
+    public static Trackpoint from(LocationPoint locationPoint, long routeId, @RouteStatus String routeStatus) {
         return new Builder()
                 .setAccuracy(locationPoint.getAccuracy())
                 .setAltitude(locationPoint.getAltitude())
@@ -138,12 +149,13 @@ public final class Trackpoint {
                 Float.compare(that.accuracy, accuracy) == 0 &&
                 Float.compare(that.speed, speed) == 0 &&
                 routeId == that.routeId &&
+                ObjectsCompat.equals(routeStatus, that.routeStatus) &&
                 ObjectsCompat.equals(createdAt, that.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return ObjectsCompat.hash(id, latitude, longitude, altitude, bearing, accuracy, speed, routeId, createdAt);
+        return ObjectsCompat.hash(id, latitude, longitude, altitude, bearing, accuracy, speed, routeId, routeStatus, createdAt);
     }
 
     public static final class Builder extends BaseBuilder<Trackpoint, Builder> {
@@ -156,6 +168,9 @@ public final class Trackpoint {
         private float speed;
 
         private LocalDateTime createdAt;
+
+        @RouteStatus
+        private String routeStatus;
 
         public Builder setLatitude(double latitude) {
             this.latitude = latitude;
@@ -194,6 +209,11 @@ public final class Trackpoint {
 
         public Builder setSpeed(float speed) {
             this.speed = speed;
+            return this;
+        }
+
+        public Builder setRouteStatus(@RouteStatus String routeStatus) {
+            this.routeStatus = routeStatus;
             return this;
         }
 

@@ -2,6 +2,8 @@ package ru.danilashamin.routetracker.logic.framework;
 
 import android.Manifest;
 
+import androidx.core.content.PermissionChecker;
+
 import com.vanniktech.rxpermission.Permission;
 import com.vanniktech.rxpermission.RxPermission;
 
@@ -44,7 +46,7 @@ public final class PermissionsManager {
             return true;
         }
 
-        public boolean isDeniedNotShowing(){
+        public boolean isDeniedNotShowing() {
             for (Permission permission : permissions) {
                 if (permission.state() == Permission.State.DENIED_NOT_SHOWN) {
                     return true;
