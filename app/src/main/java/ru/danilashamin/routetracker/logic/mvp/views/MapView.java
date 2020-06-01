@@ -16,6 +16,7 @@ public interface MapView extends ViewBase {
     @StateStrategyType(AddToEndSingleStrategy.class)
     void submitRouteControlInfo(EntityRouteControl routeControl);
 
+    @StateStrategyType(AddToEndSingleStrategy.class)
     void collapseRouteControl();
 
     //******************* MAP REGION **********************

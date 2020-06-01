@@ -12,7 +12,6 @@ import ru.danilashamin.routetracker.application.App;
 import ru.danilashamin.routetracker.base.presenter.PresenterBase;
 import ru.danilashamin.routetracker.logic.entities.EntityRouteControl;
 import ru.danilashamin.routetracker.logic.entities.LocationPoint;
-import ru.danilashamin.routetracker.logic.enums.RouteStatus;
 import ru.danilashamin.routetracker.logic.framework.PermissionsManager;
 import ru.danilashamin.routetracker.logic.location.LocationManager;
 import ru.danilashamin.routetracker.logic.mappers.EntitiesMapper;
@@ -113,10 +112,11 @@ public final class MapPresenter extends PresenterBase<MapView> {
         utilRoutes.stopTracking();
 
         addDisposable(locationManager.getCurrentLocation()
-                .flatMapSingle(locationPoint -> adapterDatabase.saveTrackpoint(locationPoint, routeId, RouteStatus.COMPLETED))
+                .flatMapSingle(locationPoint -> adapterDatabase.saveTrackpoint(locationPoint, routeId))
                 .flatMapSingle(trackpointId -> adapterDatabase.stopRoute(routeId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rowCount -> {
+                    getViewState().submitRouteControlInfo(EntityRouteControl.startRouteControl());
                     Log.d(TAG, "Route with id " + routeId + " successfully completed");
                 }, error -> {
                     Crashlytics.logException(error);
@@ -128,8 +128,8 @@ public final class MapPresenter extends PresenterBase<MapView> {
         utilRoutes.stopTracking();
 
         addDisposable(locationManager.getCurrentLocation()
-                .flatMapSingle(locationPoint -> adapterDatabase.saveTrackpoint(locationPoint, routeId, RouteStatus.PAUSED))
-                .flatMapSingle(trackpointId -> adapterDatabase.stopRoute(routeId))
+                .flatMapSingle(locationPoint -> adapterDatabase.saveTrackpoint(locationPoint, routeId))
+                .flatMapSingle(trackpointId -> adapterDatabase.pauseRoute(routeId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rowCount -> {
                     Log.d(TAG, "Route with id " + routeId + " successfully paused");

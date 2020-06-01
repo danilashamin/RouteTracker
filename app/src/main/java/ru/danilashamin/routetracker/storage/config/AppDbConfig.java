@@ -10,6 +10,7 @@ public final class AppDbConfig {
     public static final String APP_DATABASE_NAME = "AppDatabase";
 
     public static final class TRACKPOINT {
+
         private TRACKPOINT() {
             throw new AssertionError();
         }
@@ -26,7 +27,7 @@ public final class AppDbConfig {
         public static final String ACCURACY = "accuracy";
         public static final String SPEED = "speed";
         public static final String ROUTE_ID = "route_id";
-        public static final String ROUTE_STATUS = "route_status";
+        public static final String ROUTE_SECTION_ID = "route_section_id";
     }
 
 
@@ -42,6 +43,17 @@ public final class AppDbConfig {
         public static final String STARTED_AT = "started_at";
         public static final String FINISHED_AT = "finished_at";
         public static final String STATUS = "status";
+    }
+
+    public static final class ROUTE_SECTION {
+        private ROUTE_SECTION() {
+            throw new AssertionError();
+        }
+
+        public static final String TABLE_NAME = "route_section";
+        public static final String ID = "id";
+
+        public static final String ROUTE_ID = "route_id";
     }
 
 }

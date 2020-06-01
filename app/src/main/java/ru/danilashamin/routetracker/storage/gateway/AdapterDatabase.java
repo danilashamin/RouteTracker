@@ -78,8 +78,8 @@ public final class AdapterDatabase {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Single<Long> saveTrackpoint(LocationPoint locationPoint, Long routeId, @RouteStatus String routeStatus) {
-        Trackpoint trackpoint = Trackpoint.from(locationPoint, routeId, routeStatus);
+    public Single<Long> saveTrackpoint(LocationPoint locationPoint, Long routeId) {
+        Trackpoint trackpoint = Trackpoint.from(locationPoint, routeId);
         return database.trackpointDao().add(trackpoint)
                 .subscribeOn(Schedulers.io());
     }
